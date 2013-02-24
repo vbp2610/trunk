@@ -1,0 +1,22 @@
+<!--meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" /-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body{margin:0px;padding:0px;background-color:red}
+			#parent{background-color:green;position:absolute}
+			#child{background-color:blue;width:500px;height:400px}
+		</style>
+	</head>
+	<body>
+		<div id="parent">
+			<div id="child"></div>
+		</div>
+	</body>
+	<script src="scaling.js"></script>
+	<script>
+		var layoutCfg = {"width":500,"height":400,"parentId":"#parent","childId":"#child"};
+		viewPort.setLayoutConfig(layoutCfg);
+		window.addEventListener('load', viewPort.render.call(viewPort));
+	</script>
+</html>
