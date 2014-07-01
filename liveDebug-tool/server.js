@@ -3,6 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 app.get('/', function(req, res){
+    console.log('this is get method port===' + req.connection.remotePort);
   if(req.param('site') === 'publisher'){
      res.sendfile('publisher.html'); 
   }else{    
@@ -10,8 +11,22 @@ app.get('/', function(req, res){
   }
 });
 io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+    socket.on('chat message', function(msg){
+      var that = io.sockets;
+      var totalclient = that.sockets.length;
+      console.log('total number of client connected with server=' + totalclient);
+      for (var i=0; i<totalclient;i++){
+        console.log('socket id='+ that.sockets[i].id);
+        if(this.id == that.sockets[i].id){
+            console.log("========================================================+++++++++++++++++++++++++++++++++++++++++");
+        }else{
+            that.connected[that.sockets[i].id].emit('chat message', msg);
+        }
+       console.log('why this is coming here' + that.connected[that.sockets[i].id].request.connection.remotePort);   
+    }
+    console.log("this is port number with whom connection has been establisher="+socket.request.connection.remotePort);
+      //io.emit('chat message', msg);
+      //this.emit('chat message', msg);
   });
 });
 

@@ -28,6 +28,16 @@
         $('#m').val('');
         return false;
       });
+    socket.on("connect", function (socket) {
+    /*var address = socket.handshake.address;
+    console.log("New connection from " + address.address + ":" + address.port);
+   console.log(socket.request.connection.remotePort);
+*/
+
+
+        });    
+        
+        
       socket.on('chat message', function(msg){
           console.log('developer');
         $('#messages').append($('<li>').text(msg));
