@@ -1,0 +1,24 @@
+{
+  "name": "webkit-remote-debug-client",
+  "version": "0.0.3",
+  "description": "debug client for webkit remote debugging",
+  "author": {
+    "name": "vishwa Bandhu Pachauri",
+    "email": "vbp_2610@yahoo.com"
+  },
+"main": "./lib/frontendClient",
+  "contributors": [
+    {
+      "name": "vishwa Bandhu Pachauri",
+      "email": "vbp_2610@yahoo.com"
+    }
+  ],
+ "homepage": "https://github.com/vbp2610/trunk/",
+ "dependencies": {
+   "ws": "0.4.x"
+  },
+"engines": {
+    "node": "*"
+  }
+
+}
