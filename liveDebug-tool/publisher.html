@@ -1,0 +1,32 @@
+<html>
+<head>
+</head>
+<body>
+<div id='name'>this is my publisher page</div>
+<script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src='http://blog.maxaller.name/hydrate/gen/Hydrate.js'></script>
+<script>
+      var socket = io();
+    var recentMsg = '';
+     socket.on('chat message', function(msg){
+        //console.log(eval(msg));
+         console.log('publisher');
+         if(recentMsg !=msg){
+            eval(msg);
+             console.log(result);
+             setTimeout(test,200);
+         }
+         function test(){
+             if(result.nodeType && result.innerHTML){
+                 result = result.innerHTML;
+             }
+             recentMsg = result;
+            socket.emit('chat message', result);
+         }
+         
+     });
+    
+    </script>
+</body>    
+</html>
