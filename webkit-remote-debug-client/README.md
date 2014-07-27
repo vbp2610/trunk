@@ -85,10 +85,12 @@ Protocol][1].
 #### How to subscribe for Event emit by chrome
 
 client.on('domain.event', callback);
+
 for Example :client.on('Network.responseReceived', callbackResponseReceived);
 
 ### How to send command to chrome
 client.domain.commands.commandName();
+
 for example: client.Page.commands.enable();
 Resources
 ---------
